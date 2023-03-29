@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Side</title>
+    <link rel="stylesheet" href="./styles/adminDashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#nameofpages {
+  margin: auto;
+  cursor: pointer;
+}
+#icon {
+  width: 70px;
+  display: flex;
+  align-items: center;
+}
+.logoutsection {
+  /* border: 1px solid red; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  /* display: flex;
+  justify-content: space-between; */
+  border-radius: 5px;
+  /* width: 100px; */
+  padding: 30px;
+  position: relative;
+  float: right;
+  display: none;
+}
+#logoutBtn {
+  color: green;
+  cursor: pointer;
+}
+hr {
+  border: 1px solid rgb(239, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#admin {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#admin img {
+  width: 30px;
+}
+.middlepart {
+  display: flex;
+}
+.left > a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+.left {
+  margin-top: 30px;
+  padding: 50px;
+  line-height: 30px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.left > .dashboard {
+  color: white;
+}
+.left > a {
+  padding: 20px;
+}
+.left > a:hover {
+  transition: 500ms;
+  background-color: black;
+  color: white;
+}
+.dashboard {
+  background-color: black;
+}
+.totalBalance {
+  width: 150px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 50px;
+  height: fit-content;
+}
+.totalSales {
+  width: 150px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 50px;
+  height: fit-content;
+}
+.totalusers {
+  width: 150px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 50px;
+  height: fit-content;
+}
+.rightone {
+  width: 900px;
+  /* border: 1px solid red; */
+  margin: 50px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.nextbetween {
+  width: 900px;
+  /* border: 1px solid red; */
+  margin: 50px;
+  margin-left: 100px;
+}
+thead > tr > td {
+  text-align: center;
+  color: #fff;
+  background-color: black;
+  width: 230px;
+}
+tbody > tr {
+  text-align: center;
+  font-size: 12px;
+}
+
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <a href="./index.html"
+        ><img id="icon" src="" alt=""
+      /></a>
+      <h3 id="nameofpages">Dashboard</h3>
+      <div id="admin">
+        <h3>PROFILE</h3>
+      </div>
+    </nav>
+
+    <hr />
+    <div class="logoutsection">
+      <h5>Admin</h5>
+      <h5 id="logoutBtn">Log out</h5>
+    </div>
+    <div class="middlepart">
+      <div class="left">
+        <a href="./adminDashboard.html" class="dashboard">Dashboard</a>
+        <a href="./adminCustomers.html" class="Customers">Users</a>
+        <a href="./adminTransaction.html" class="Transation">Transation</a>
+        <a href="./adminProducts.html" class="Products">Products</a>
+      </div>
+
+      <div class="right">
+        <div class="rightone">
+          <div class="totalBalance">
+            <span>Balance Amount</span><br />
+            <span id="balancetotal">0</span>
+          </div>
+          <div class="totalSales">
+            <span>Total Sales</span><br />
+            <span id="salestotal">0</span>
+          </div>
+          <div class="totalusers">
+            <span>Total Users</span><br />
+            <span id="usertotal">0</span>
+          </div>
+        </div>
+        <div class="nextbetween">
+          <h2>Latest Orders</h2>
+          <table>
+            <thead>
+              <tr>
+                <td>Order Number</td>
+                <td>Billing Name</td>
+                <td>Amount</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let balancetotalEl = document.getElementById("balancetotal");
+  let salestotalEl = document.getElementById("salestotal");
+  let usertotalEl = document.getElementById("usertotal");
+  let adminEl = document.getElementById("admin");
+  let logoutsectionEl = document.querySelector(".logoutsection");
+  let logoutBtnEl = document.getElementById("logoutBtn");
+  //Events
+  window.addEventListener("load", () => {
+    // window.location.href = "./index.html";
+  });
+  logoutBtnEl.addEventListener("click", () => {
+    window.location.href = "./index.html";
+  });
+
+  adminEl.addEventListener("click", () => {
+    if (logoutsectionEl.style.display === "block") {
+      logoutsectionEl.style.display = "none";
+    } else {
+      logoutsectionEl.style.display = "block";
+    }
+  });
+
+  //fetch Data from orders.json and local storage with key "placedorders"
+  let totalBalance = 0;
+  let countSales = 0;
+  let ordersData = JSON.parse(localStorage.getItem("placedorders")) || [];
+  if (ordersData.length == 0) {
+    fetch(`/orders.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        //
+
+        //get data from local storage
+
+        //get users from local storage
+        // let usersData = JSON.parse(localStorage.getItem("usersdata")) || [];
+        for (let i = 0; i < data.length; i++) {
+          ordersData.push(data[i]);
+        }
+        localStorage.setItem("placedorders", JSON.stringify(ordersData));
+      });
+  }
+
+  let ordersD = JSON.parse(localStorage.getItem("placedorders")) || [];
+  for (let i = 0; i < ordersD.length; i++) {
+    if (ordersD[i].status === "delivered") {
+      totalBalance += ordersD[i].amount;
+      countSales++;
+    }
+  }
+
+  //Display data to the recent orders
+  DisplayData(ordersD);
+  //Display total sales
+  balancetotalEl.innerText = totalBalance;
+  salestotalEl.innerText = countSales;
+  usertotalEl.innerText = usersData.length;
+
+  function DisplayData(arr) {
+    let content = ``;
+    for (let i = 0; i < arr.length; i++) {
+      content += createrow(arr[i]);
+    }
+    document.querySelector("tbody").innerHTML = content;
+  }
+  function createrow(el) {
+    return `<tr>
+                <td>${el.ordernumber}</td>
+                <td>${el.name}</td>
+                <td>${el.amount}</td>
+                <td>${el.status}</td>
+              </tr>`;
+  }
+</script>
