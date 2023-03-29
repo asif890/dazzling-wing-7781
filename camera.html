@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera</title>
+    <style>
+        #home{
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            
+        }#home>img{
+            width: 15px;
+
+        }#home>a{
+            text-decoration: none;
+            color: blue;
+        }#products{
+            width: 95%;
+            margin: auto;
+        }.topPart{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="products">
+        <div id="home">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/009/385/954/small/house-symbol-and-home-icon-sign-design-free-png.png" alt="">
+            <a href="">-Photography-</a>
+            <p>Cameras</p>
+        </div>
+        <h1>Digital Cameras & Digital Camera Kits</h1>
+        <p>View additional :<span class="topPart">Used Digital Cameras & Digital Camera Kits (573)</span></p>
+        <div id="camerasProducts"></div>
+    </div>
+</body>
+</html>
+<script>
+    let products=document.getElementById("camerasProducts")
+    fetch("./camera.json")
+    .then((res)=>{
+        return res.json()
+    })
+    .then((data)=>{
+        console.log(data);
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+    function display(arr){
+        arr.forEach((element) => {
+            let card=document.createElement("div")
+            let img_card=document.createElement("div")
+            let imag=document.createElement("img")
+            imag.src=element.image
+            img_card.append(imag)
+            let name_card=document.createElement("div")
+            let name=document.createElement("h3")
+             name.innerText=element.name
+            let subName=document.createElement("p")
+            subName.innerText=element.subDetail
+            let sensor=document.createElement("p")
+            sensor.innerText="Sensor Size:"+element.Sensor_size
+            let resolution=document.createElement("p")
+            resolution.innerText="Resolution:"+element.resolution
+            let lenceIncluded=document.createElement("p")
+            lenceIncluded.innerText="Lence Included:"+element.lenceIncluded
+            let price_card=document.createElement("div")
+        });
+    }
+</script>
