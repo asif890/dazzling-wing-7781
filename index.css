@@ -1,0 +1,90 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+#image-container>img{
+    width: 100%;
+}
+#header1{ 
+    margin: 0%;
+    background-color: black;
+    border: 2px solid black;
+    text-align: center;
+    height: 30px;
+}
+#header1>h5{
+    height: 80%;
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px; */
+    margin-top: 5px;
+}
+#t1_back
+{
+    /* border :2px solid red */
+    background-color:rgb(19, 72, 159);
+    /* width: 90%; */
+   
+}
+#t1{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 20px;
+    text-align: center;
+    width: 96%;
+    margin: auto;
+    justify-content: space-between;
+    
+  
+    /* border :2px solid red */
+    
+
+}
+#t1>div{
+    /* border :2px solid red */
+    background-color: white;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    margin-bottom: 30px;
+   
+
+}
+h2{
+    color: white;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 40px;
+}
+#t2{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    gap: 10px;
+    text-align: center;
+    width: 96%;
+    margin: auto;
+}
+#t2>div{
+    background-color:rgb(19, 72, 159);
+    margin-top: 10px;
+    margin-bottom: 30px;
+   
+    /* height: 130px; */
+}
+#t2>div>img{
+    width: 100%;
+}
+#t2>div>p{
+    color: white;
+    /* padding-bottom: 100px; */
+}
+#t3{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 10px;
+    width: 96%;
+    margin: auto;
+    text-align: center;
+}
+#t3>div{
+    border :2px solid green 
+}
