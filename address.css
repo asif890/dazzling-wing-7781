@@ -91,7 +91,19 @@ body{
   margin-top: 5px;
   cursor: pointer;
 }
+a{
+  width: 100%;
+  padding:12px;
+  font-size: 17px;
+  background: rgb(0, 43, 102);
+  color:#fff;
+  margin-top: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
 
 .container form .submit-btn:hover{
   background: rgb(0, 70, 145);
 }
+
