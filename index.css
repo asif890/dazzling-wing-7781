@@ -86,5 +86,153 @@ h2{
     text-align: center;
 }
 #t3>div{
-    border :2px solid green 
+    /* border :2px solid white */
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#t4{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4,1fr);
+    width: 96%;
+    margin: auto;
+
+}
+#t4>div>img{
+    width: 100%;
+}
+#t5{
+    width: 96%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#t5>img{
+    width: 100%;
+}
+#t6{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+    width: 96%;
+    margin: auto;
+}
+#t6>div>img{
+    width: 100%;
+}
+#t7{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 10px;
+    width: 96%;
+    margin: auto;
+    text-align: center;
+}
+#t7>div{
+    /* border :2px solid white */
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#t8{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 10px;
+    width: 96%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#t8>div{
+    /* border :2px solid white */
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#t9
+{
+    width: 96%;
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom: 20px;
+}
+#t9>div>img{
+    width: 100%;
+}
+#t9> :nth-child(1){
+    background-image: url('https://www.adorama.com/col/UIimages/homepage/evergreen-banners/Callout_Image_Used.jpg');
+    background-size: cover;
+    padding: 10px; /* add padding to create some space between text and image */
+}
+#t9> :nth-child(2){
+    background-image: url('https://www.adorama.com/col/UIimages/homepage/evergreen-banners/Callout_Image_Sell.jpg');
+    background-size: cover;
+    padding: 10px; /* add padding to create some space between text and image */
+}
+#t9> :nth-child(3){
+    background-image: url('https://www.adorama.com/col/UIimages/homepage/evergreen-banners/Callout_Students.jpg');
+    background-size: cover;
+    padding: 10px; /* add padding to create some space between text and image */
+}
+#t9> :nth-child(4){
+    background-image: url('https://www.adorama.com/col/UIimages/homepage/evergreen-banners/Callout_Rentals.jpg');
+    background-size: cover;
+    padding: 10px; /* add padding to create some space between text and image */
+}
+#t9> :nth-child(5){
+    background-image: url('https://www.adorama.com/col/UIimages/homepage/evergreen-banners/Callout_Image_ABS.jpg');
+    background-size: cover;
+    padding: 10px; /* add padding to create some space between text and image */
+}
+#t9> :nth-child(6){
+    background-image: url('https://www.adorama.com/col/UIimages/homepage/evergreen-banners/Callout_Printique.jpg');
+    background-size: cover;
+    padding: 10px; /* add padding to create some space between text and image */
+}
+#t9>div>h4{
+    color: white;
+    font-size: 20px;
+}
+#t9>div>p{
+    color: white;
+    font-size: 20px;
+}
+#t10{
+    width: 96%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#t10>div>img{
+    width: 100%;
+}
+#t10>div{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+#t11
+{
+    width: 96%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+#t11>div>img{
+    width: 100%;
+}
+#t12{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    width: 96%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+#t12>div>img{
+    width: 100%;
 }
