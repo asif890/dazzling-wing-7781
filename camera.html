@@ -22,6 +22,62 @@
             margin: auto;
         }.topPart{
             color: blue;
+        }#camerasProducts{
+            width: 78%;
+            background-color: rgb(224, 223, 223);
+            margin: auto;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap: 15px;
+        }
+        #camerasProducts>div{
+             padding: 10px;
+          background-color: white;
+            display: flex;
+            justify-content: space-between;
+            
+        }#camerasProducts>div>div>img{
+            display: block;
+            width: 100%;
+            display: flex;
+            align-self: center;
+            margin: auto;
+        }
+        #camerasProducts>div>div{
+            width: 31%;
+        }#filter-section{
+            width: 20%;
+
+        }#filter-section>a{
+            text-decoration: none;
+            color: blue;
+            font-size: 17px;
+        }#filter-products{
+            width: 95%;
+            
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+        }.company{
+            color: blue;
+        }h4{
+            color: blue;
+        }#camerasProducts>div>div>button{
+            display: block;
+            border: none;
+            background-color: rgb(237, 69, 8);
+            border-radius: 10px;
+            color: white;
+            padding-left:20px;
+            font-size: 17px;
+            margin: auto;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 20px;
+        }#camerasProducts>div>div>button+p{
+            color: blue;
         }
     </style>
 </head>
@@ -34,11 +90,29 @@
         </div>
         <h1>Digital Cameras & Digital Camera Kits</h1>
         <p>View additional :<span class="topPart">Used Digital Cameras & Digital Camera Kits (573)</span></p>
+        <div id="filter-products">
+            <div id="filter-section">
+               <p>CATEGORIES:</p>
+               <a href="">< All Categories</a><br>
+               <a href="">< Photography</a>
+               <p style="font-size: 17px;">Cameras</p>
+               <div class="company">
+                <p>Mirrorless Cameras (827)</p>
+                <p>Digital Point & Shoot Cameras (291)</p>
+                <p>Digital SLR Cameras (109)</p>
+                <p>Instant Cameras (83)</p>
+                <p>Specialty Cameras (71)</p>
+                <p>Camera Warranties (61)</p>
+                <p>Medium Format Cameras (34)</p>
+               </div>
+            </div>
         <div id="camerasProducts"></div>
+        </div>
     </div>
 </body>
 </html>
 <script>
+    let Alldata=[]
     let products=document.getElementById("camerasProducts")
     fetch("./camera.json")
     .then((res)=>{
@@ -46,10 +120,13 @@
     })
     .then((data)=>{
         console.log(data);
+        Alldata=data
+        display(data)
     })
     .catch((err)=>{
         console.log(err);
     })
+    let CartList=JSON.parse(localStorage.getItem("cameras"))||[]
     function display(arr){
         arr.forEach((element) => {
             let card=document.createElement("div")
@@ -58,7 +135,7 @@
             imag.src=element.image
             img_card.append(imag)
             let name_card=document.createElement("div")
-            let name=document.createElement("h3")
+            let name=document.createElement("h4")
              name.innerText=element.name
             let subName=document.createElement("p")
             subName.innerText=element.subDetail
@@ -68,7 +145,58 @@
             resolution.innerText="Resolution:"+element.resolution
             let lenceIncluded=document.createElement("p")
             lenceIncluded.innerText="Lence Included:"+element.lenceIncluded
+            let lenceMount=document.createElement("p")
+            lenceMount.innerText="Lence Mount:"+element.lenceMount
+            let videoResolution=document.createElement("p")
+            videoResolution.innerText="Video Resolution:"+element.videoResolution
+            let stock=document.createElement("p")
+            stock.innerText="In Stock"
+            name_card.append(name,subName,sensor,resolution,lenceIncluded,lenceMount,videoResolution,stock)
             let price_card=document.createElement("div")
+            let ourprice=document.createElement("p")
+            ourprice.innerText="Our Price"
+            let PriceP=document.createElement("h2")
+            PriceP.innerText="$"+element.price
+            let sp=document.createElement("span")
+            sp.innerText="VIP PRO"
+            let priceExplain=document.createElement("p")
+            priceExplain.innerText=element.priceExplain
+            let addTocart=document.createElement("button")
+            addTocart.innerText="Add to Cart"
+            let whish=document.createElement("p")
+            whish.innerText="+Whishlist"
+            let save=document.createElement("p")
+            save.innerText="Ways to Save"
+            let offer=document.createElement("p")
+            offer.innerText=element.offer
+            let point=document.createElement("p")
+            point.innerText="Get Reward Point"
+
+             addTocart.addEventListener("click",()=>{
+                if(inCart(element)){
+                    alert("Product Allready In Cart")
+                }else{
+                    alert("Product Added To Cart")
+                    CartList.push(element)
+                    localStorage.setItem("cameras",JSON.stringify(CartList))
+                }
+             })
+
+            price_card.append(ourprice,PriceP,sp,priceExplain,addTocart,whish,save,offer,point)
+            card.append(img_card,name_card,price_card)
+            products.append(card)
         });
     }
+   function inCart(elements){
+      for(let i=0; i<CartList.length; i++){
+        if(elements.id===CartList[i].id){
+        return true
+      } 
+        
+      
+        return false
+      }
+      
+   }
+
 </script>
