@@ -11,6 +11,18 @@
 </head>
 <body>
     <img src="https://drive.google.com/uc?id=1Yfwvko4dcN3kBAiEs6EcNikWife7lbhb" alt="">
+
+    <div class="popup" id="popup">
+        <img src="images/404-tick.png" alt="">
+        <h2>Thank You</h2>
+        <p>Payment Successful</p>
+        <!-- <button type="button" id="okbtn" onclick="closepopup()">OK</button> -->
+        <a href="index.html">OK</a>
+    </div>
+
+
+
+
 <div class="container">
 
     <div class="card-container">
@@ -96,10 +108,10 @@
                 <input type="text" maxlength="3" class="cvv-input">
             </div>
         </div>
-        <input id="pay" type="submit" value="Proceed to Checkout" class="submit-btn">
+        <!-- <input id="pay" type="submit" value="Proceed to Checkout" class="submit-btn"> -->
+        <button id="pay" class="submit-btn">Proceed to Checkout</button>
     </form>
-
-</div>    
+     
     
 
 
@@ -137,6 +149,30 @@ document.querySelector('.cvv-input').onmouseleave = () =>{
 document.querySelector('.cvv-input').oninput = () =>{
     document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
 }
+
+let cn=document.querySelector(".card-number-input")
+let cnv=cn.value
+let ch=document.querySelector(".card-holder-input")
+let chv=ch.value
+let cont=document.querySelector(".container")
+paybtn=document.getElementById("pay").onclick=()=>{
+   if(cnv==""||chv==""){
+    cont.innerHTML=""
+    popup.classList.add("openpopup")
+    setTimeout(()=>{
+    window.location.reload()
+    },900000)
+    
+   }
+    
+    popup.classList.add("openpopup")
+}
+
+function closepopup(){
+    popup.classList.remove("openpopup")
+}
+
+
 
 </script>
 
