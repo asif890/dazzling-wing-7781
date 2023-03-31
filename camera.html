@@ -78,6 +78,20 @@
             padding-right: 20px;
         }#camerasProducts>div>div>button+p{
             color: blue;
+        }#camerasProducts>div>div>p+img{
+            display: block;
+            width: 30%;
+            margin-left: 0%;
+        }#priceRange{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }#priceRange>button{
+          width: 50%;
+          margin-bottom: 10px;
+          color: blue;
+          border: none;
+          background-color: none;
         }
     </style>
 </head>
@@ -105,6 +119,17 @@
                 <p>Camera Warranties (61)</p>
                 <p>Medium Format Cameras (34)</p>
                </div>
+               <p><hr>Price Range</hr></p>
+               <div id="priceRange">
+                    <button id="1">$0 to $100$</button>
+                    <button id="2">$100 to $300</button>
+                    <button id="3">$300 to $500</button>
+                    <button id="4">$500 to $700</button>
+                    <button id="5">$700 to $900</button>
+                    <button id="6">$900 to $1100</button>
+                    <button id="7">$1100 to $1300</button>
+                    <button id="8">$1300 and above</button>
+               </div>
             </div>
         <div id="camerasProducts"></div>
         </div>
@@ -126,8 +151,81 @@
     .catch((err)=>{
         console.log(err);
     })
+    let btn1=document.getElementById("1")
+    let btn2=document.getElementById("2")
+    let btn3=document.getElementById("3")
+    let btn4=document.getElementById("4")
+    let btn5=document.getElementById("5")
+    let btn6=document.getElementById("6")
+    let btn7=document.getElementById("7")
+    let btn8=document.getElementById("8")
+    btn1.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price<=100){
+                return true
+            }
+        })
+        display(fil)
+    })
+    btn2.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price>100 && element.price<=300){
+                return true
+            }
+        })
+        display(fil)
+    })
+    btn3.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price>300 && element.price<=500){
+                return true
+            }
+        })
+        display(fil)
+    })
+    btn4.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price>500 && element.price<=700){
+                return true
+            }
+        })
+        display(fil)
+    })
+    btn5.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price>700 && element.price<=900){
+                return true
+            }
+        })
+        display(fil)
+    })
+    btn6.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price>900 && element.price<=1100){
+                return true
+            }
+        })
+        display(fil)
+    })
+    btn7.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price>1100 && element.price<=1300){
+                return true
+            }
+        })
+        display(fil)
+    })
+    btn8.addEventListener("click",()=>{
+        let fil=Alldata.filter((element)=>{
+            if(element.price>1300){
+                return true
+            }
+        })
+        display(fil)
+    })
     let CartList=JSON.parse(localStorage.getItem("cameras"))||[]
     function display(arr){
+        products.innerHTML=""
         arr.forEach((element) => {
             let card=document.createElement("div")
             let img_card=document.createElement("div")
@@ -139,6 +237,8 @@
              name.innerText=element.name
             let subName=document.createElement("p")
             subName.innerText=element.subDetail
+            let rate=document.createElement("img")
+            rate.src=element.rate
             let sensor=document.createElement("p")
             sensor.innerText="Sensor Size:"+element.Sensor_size
             let resolution=document.createElement("p")
@@ -151,7 +251,7 @@
             videoResolution.innerText="Video Resolution:"+element.videoResolution
             let stock=document.createElement("p")
             stock.innerText="In Stock"
-            name_card.append(name,subName,sensor,resolution,lenceIncluded,lenceMount,videoResolution,stock)
+            name_card.append(name,subName,rate,sensor,resolution,lenceIncluded,lenceMount,videoResolution,stock)
             let price_card=document.createElement("div")
             let ourprice=document.createElement("p")
             ourprice.innerText="Our Price"
