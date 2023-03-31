@@ -160,8 +160,8 @@ tbody > tr {
     </div>
     <div class="middlepart">
       <div class="left">
-        <a href="./adminDashboard.html" class="dashboard">Dashboard</a>
-        <a href="./adminCustomers.html" class="Customers">Users</a>
+        <a href="./das.html" class="dashboard">Dashboard</a>
+        <a href="./customers.html" class="Customers">Users</a>
         <a href="./adminTransaction.html" class="Transation">Transation</a>
         <a href="./adminProducts.html" class="Products">Products</a>
       </div>
@@ -200,6 +200,28 @@ tbody > tr {
   </body>
 </html>
 <script>
+     const url = "https://api.escuelajs.co/api/v1/users"
+let usersData = JSON.parse(localStorage.getItem("usersdata"))||[]
+if(usersData.length<5){
+  fetch(url)
+.then((res)=>res.json())
+.then((data)=>{
+    data.forEach((el)=>{
+       let obj = {
+        name : el.name,
+        email : el.email,
+        password: el.password,
+        avatar : el.avatar,
+        role :el.role
+       }
+       usersData.push(obj)
+       console.log(usersData)
+       localStorage.setItem("usersdata",JSON.stringify(usersData))
+    })
+})
+
+
+}
   let balancetotalEl = document.getElementById("balancetotal");
   let salestotalEl = document.getElementById("salestotal");
   let usertotalEl = document.getElementById("usertotal");
