@@ -2,6 +2,12 @@ body{
     margin: 0%;
     padding: 0%;
 }
+h3{
+    margin-left: 30px;
+ font-family: sans-serif;
+ margin-top: 20px;
+ margin-bottom: 20px;
+}
 #image-container>img{
     width: 100%;
 }
@@ -21,7 +27,7 @@ body{
 #t1_back
 {
     /* border :2px solid red */
-    background-color:rgb(19, 72, 159);
+    background-color:rgb(9, 53, 125);
     /* width: 90%; */
    
 }
@@ -39,6 +45,11 @@ body{
     
 
 }
+#trop{
+    display: flex;
+    justify-content: center;
+}
+
 #t1>div{
     /* border :2px solid red */
     background-color: white;
@@ -64,7 +75,7 @@ h2{
     margin: auto;
 }
 #t2>div{
-    background-color:rgb(19, 72, 159);
+    background-color:rgb(9, 53, 125);
     margin-top: 10px;
     margin-bottom: 30px;
    
@@ -236,3 +247,90 @@ h2{
 #t12>div>img{
     width: 100%;
 }
+
+
+/* Footer */
+
+
+
+.footer-99382 .row > div:not(:first-child) {
+    flex: 1;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-99382 .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .footer-99382 {
+    background-color:rgb(9, 53, 125);
+    padding: 40px 0;
+  }
+  
+  /* Style the site logo */
+  .footer-site-logo {
+    color:white;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  /* Style the footer links */
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+  
+  .nav-links a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover {
+    color:green;
+  }
+  
+  /* Style the social icons */
+  .social li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color:white;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  
+  .social a:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Style the copyright text */
+  .copyright {
+    color: white;
+    font-size: 14px;
+  }
+  .footer-99382 h3{
+  margin-left: 30px;
+  color: white;
+  }
+  .icon-facebook>img{
+      width: 100%;
+  }
+  .col-md img{
+      width: 100%;
+  }
+  .col-md-4>a{
+    font-size: 30px;
+    margin-left: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
