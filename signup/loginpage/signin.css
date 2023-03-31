@@ -22,22 +22,49 @@ border-radius: 20px;
 #logoimgdiv{
     /* background-color: #ffff; */
     width: 300px;
-    opacity: 100;
+    /* opacity: 100; */
+    margin: auto;
+    align-items: center;
+    /* border: 2px solid red; */
+    margin-top: 50%;
 }
 #cont>div:nth-child(1) img{
     width: 100%;
     /* background-color: #ffff; */
 }
-#cont>div:nth-child(1){
+.logchar{
+    /* color: #ffff; */
+    text-align: center;
+    margin-top: 220px;
+}
+.logchar h3{
+    /* color: #ffff; */
+    text-decoration: none;
+    margin-bottom: 6px;
+    font-family: Inter, Roboto, Arial, sans-serif;
+}
+.logchar a{
+    color: #ffff;
+    text-decoration: none;
+    font-family: Inter, Roboto, Arial, sans-serif;
+}
+.logchar a:hover{
+    color: #d1190b;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.contsec{
 width: 50%;
+text-align: center;
 /* height: 900px; */
-opacity: 1;
- display: flex;
+/* opacity: 1; */
+ /* display: flex; */
 justify-content: center;
 align-items: center;
 border-radius: 20px;
+/* border: 2px solid red; */
 }
-#cont>div:nth-child(2){
+.secdiv{
 /* background-color: rgb(234, 234, 234); */
 width: 50%;
 /* height: 650px; */
@@ -137,7 +164,7 @@ font-weight: 400;
 text-align: right;
 color: #c3452b;
 }
-.incont>p:nth-child(10){
+.incont>p:nth-child(9){
 text-align: center;
 color: #B5B5B5;
 }

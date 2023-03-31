@@ -4,39 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shoppers</title>
     <link rel="stylesheet" href="./signup.css">
 </head>
 <body>
     <div id="maincont">
         <div id="cont">
-            <div>
+            <div class="contsec">
                 <div id="logoimgdiv">
                     <img src="./finprologo.png" alt="">
                 </div>
-            </div>
-            <div>
+                <div class="logchar">
+                    <h3>Have an Account?</h3>
+                    <a href="./signin.html">SIGN IN</a>
+                </div>
+              </div>
+            <div  class="secdiv">
                <div class="incont">
                   <h2>Shoppers</h2>
                   <p>Create an Account</p>
                     <div class="flname">
                         <div>
                             <p>First Name:</p>
-                            <input type="text" placeholder="First Name" required>
+                            <input id="fname" type="text" placeholder="First Name" required>
                         </div>
                         <div>
                             <p>Last Name:</p>
-                            <input type="text" placeholder="Last Name" required>
+                            <input id="lname" type="text" placeholder="Last Name" required>
                         </div>
                   </div>
                   <p>Your Email:</p>
-                  <input type="text" placeholder="Your Email" required>
+                  <input id="email" type="text" placeholder="Your Email" required>
                   <p>Password:</p>
-                  <input type="text" placeholder="Password" required>
+                  <input id="pass" type="password" placeholder="Password" required>
                   <p>Confirm Password:</p>
-                  <input type="text" placeholder="Confirm Password" required>
+                  <input id="cpass" type="password" placeholder="Confirm Password" required>
                   <div id="divbtn">
-                        <button>SIGN UP</button>
+                        <button id="signupbt">SIGN UP</button>
                   </div>
                   <p>or continue with</p>
                   <div class="horline">
@@ -52,4 +56,5 @@
         </div>
     </div>
 </body>
+<script src="./signup.js"></script>
 </html>
