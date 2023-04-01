@@ -49,6 +49,19 @@ h3{
     display: flex;
     justify-content: center;
 }
+#trop>img{
+    padding-top: 50px;
+    width: 70px;
+    height: 70px;
+}
+#trop>h2{
+    font-size: 30px;
+    margin-left: 20px;
+   
+font-family: cursive;
+/* font-family: math;  */
+
+}
 
 #t1>div{
     /* border :2px solid red */
@@ -332,5 +345,60 @@ h2{
     font-size: 30px;
     margin-left: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-  }
+  }  
+
+
+     /* Hover */
+
+#t1>div:hover
+{
+   
+        transform: scale(1.1);
+}
+#t2>div:hover
+{
+   
+    transform: scale(1.1);
+}
+#t3>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+#t4>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+#t5>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+#t7>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+#t8>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+#t10>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+#t11>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+#t12>div:hover
+{
+   
+    transform: scale(1.1);  
+}
+  
   
