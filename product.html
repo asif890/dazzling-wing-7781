@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Side</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>* {
+        font-family: "Poppins", sans-serif;
+        padding: 0;
+        margin: 0;
+      }
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      #nameofpages {
+        margin: auto;
+        cursor: pointer;
+      }
+      #icon {
+        width: 70px;
+        display: flex;
+        align-items: center;
+      }
+      .logoutsection {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+        padding: 30px;
+        float: right;
+        position: relative;
+        display: none;
+        z-index: 1;
+      }
+      #logoutBtn {
+        color: green;
+        cursor: pointer;
+      }
+      hr {
+        border: 1px solid rgb(239, 236, 236);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      }
+      #admin {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      #admin img {
+        width: 30px;
+      }
+      .middlepart {
+        display: flex;
+        position: absolute;
+        z-index: 0.1;
+      }
+      .left > a {
+        display: block;
+        text-decoration: none;
+        color: black;
+      }
+      .left {
+        margin-top: 30px;
+        padding: 50px;
+        line-height: 30px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+      .left > .Products {
+        color: white;
+      }
+      .left > a {
+        padding: 20px;
+      }
+      .left > a:hover {
+        transition: 500ms;
+        background-color: black;
+        color: white;
+      }
+      .Products {
+        background-color: black;
+      }
+      
+      .right {
+        margin: 20px;
+      }
+      label {
+        font-size: 10px;
+      }
+      #submitbtn {
+        margin: 20px;
+      }
+      thead > tr > td {
+        text-align: center;
+        color: #fff;
+        background-color: black;
+        width: 230px;
+      }
+      tbody > tr {
+        text-align: center;
+        font-size: 12px;
+      }
+      .deletebtn {
+        border: none;
+        color: red;
+        background-color: #fff;
+        cursor: pointer;
+      }
+      .formdiv {
+        /* border: 1px solid black; */
+        padding: 15px;
+        width: fit-content;
+        /* margin: auto; */
+      }
+      </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <!-- <a href="#"><img id="icon" src="./images/logoofwesite.jpg" alt="" /></a> -->
+      <h3 id="nameofpages">Products</h3>
+      <div id="admin">
+        <!-- <img src="./images/profile-svgrepo-com.svg" alt="" /> -->
+      </div>
+    </nav>
+
+    <hr />
+    <div class="logoutsection">
+      <h5>Admin</h5>
+      <h5 id="logoutBtn">Log out</h5>
+    </div>
+    <div class="middlepart">
+      <div class="left">
+        <a href="./das.html" class="dashboard">Dashboard</a>
+        <a href="./customers.html" class="Customers">Users</a>
+        <a href="./transaction.html" class="Transation">Transation</a>
+        <a href="./product.html" class="Products">Products</a>
+      </div>
+
+      <div class="right">
+        <div class="formdiv">
+          <h4>Product Add to Shopping List</h4>
+          <!-- brand,category,id,image,price,title -->
+          <form action="">
+            <label for="brand">Brand</label> <br />
+            <select name="brand" id="brand" required>
+              <option value="">Please Select the brand</option>
+              <option value="Canon">Canon</option>
+              <option value="Sony">Sony</option>
+              <option value="Nikon">Nikon</option>
+              <option value="Panasonic">Panasonic</option>
+              <option value="Profoto">Profoto</option>
+              <option value="Gopro">Gopro</option>
+              <option value="Olypmus">Olypmus</option>
+              <option value="Atmos">Atmos</option>
+              
+              </select
+            ><br />
+            <label for="category">Category</label> <br />
+            <select name="category" id="category" required>
+              <option value="">Please Select category</option>
+              <option value="Camera">Camera</option>
+              <option value="Camera Lenses">Camera Lenses</option>
+              <option value="Camera Accessories">Camera Accessories</option>
+              <option value="Light Modifiers & Reflectors">Light Modifiers & Reflectors</option>
+              <option value="Camera Lenses">Video Lighting</option>
+              <option value="Lens Accessories">Lens Accessories</option>
+              </select
+            ><br />
+            <label for="image">Image Link</label> <br />
+            <input id="image" type="text" required /><br />
+            <label for="price">Price</label> <br />
+            <input id="price" type="number" required /><br />
+            <label for="title">Title</label> <br />
+            <input id="title" type="text" required /><br />
+            <button type="submit" id="submitbtn">Submit</button>
+          </form>
+        </div>
+        <div class="appendproducts">
+          <table>
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>Title</td>
+                <td>Category</td>
+                <td>Price</td>
+                <td>Delete</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let adminEl = document.getElementById("admin");
+  let logoutsectionEl = document.querySelector(".logoutsection");
+  let logoutBtnEl = document.getElementById("logoutBtn");
+  let formEl = document.querySelector("form");
+  let brandEl = document.getElementById("brand");
+  let categoryEl = document.getElementById("category");
+  let imageEl = document.getElementById("image");
+  let priceEl = document.getElementById("price");
+  let titleEl = document.getElementById("title");
+
+  formEl.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let ProductsData = JSON.parse(localStorage.getItem("cameras")) || [];
+    let id = ProductsData.length + 1;
+    let brand = brandEl.value;
+    let category = categoryEl.value;
+    let image = imageEl.value;
+    let price = priceEl.value;
+    let title = titleEl.value;
+    let obj = {
+      id: id,
+      brand: brand,
+      category: category,
+      image: image,
+      price: price,
+      title: title,
+    };
+    ProductsData.push(obj);
+    localStorage.setItem("cameras", JSON.stringify(ProductsData));
+    alert("Product Added to the Shopping List");
+    window.location.reload();
+  });
+  //Events
+  window.addEventListener("load", () => {
+    // window.location.href = "./index.html";
+  });
+  logoutBtnEl.addEventListener("click", () => {
+    window.location.href = "./index.html";
+  });
+
+  adminEl.addEventListener("click", () => {
+    if (logoutsectionEl.style.display === "block") {
+      logoutsectionEl.style.display = "none";
+    } else {
+      logoutsectionEl.style.display = "block";
+    }
+  });
+
+  //fetch Products Data from lS
+  let ProductsDatas = JSON.parse(localStorage.getItem("cameras")) || [];
+
+  DisplayData(ProductsDatas);
+
+  function DisplayData(arr) {
+    let content = ``;
+    for (let i = 0; i < arr.length; i++) {
+      content += createrow(arr[i]);
+    }
+    document.querySelector("tbody").innerHTML = content;
+    let deleteBtn = document.querySelectorAll(".deletebtn");
+    for (let i = 0; i < deleteBtn.length; i++) {
+      deleteBtn[i].addEventListener("click", () => {
+        // console.log(usersData[i], i);
+        let afterDelet = [];
+        for (let j = 0; j < arr.length; j++) {
+          if (i != j) {
+            afterDelet.push(arr[j]);
+          }
+        }
+        arr = afterDelet;
+        localStorage.setItem("cameras", JSON.stringify(arr));
+        DisplayData(arr);
+      });
+    }
+  }
+  function createrow(el) {
+    return `<tr>
+                <td>${el.id}</td>
+                <td>${el.title}</td>
+                <td>${el.category}</td>
+                <td>${el.price}</td>
+                <td><button class="deletebtn">Delete</button></td>
+              </tr>`;
+  }
+</script>
