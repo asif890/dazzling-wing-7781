@@ -23,7 +23,7 @@
         }.topPart{
             color: blue;
         }#camerasProducts{
-            width: 78%;
+            
             background-color: rgb(224, 223, 223);
             margin: auto;
             padding: 15px;
@@ -91,7 +91,41 @@
           margin-bottom: 10px;
           color: blue;
           border: none;
-          background-color: none;
+          background-color: white;
+        }.bottom{
+            color: blue;
+        }#both{
+            width: 78%;
+            display: flex;
+            flex-direction: column;
+        }.brand{
+    
+            
+            padding-left: 15px;
+            color: blue;
+            
+            
+        }.brand>button{
+            display: block;
+            color: blue;
+            padding: 0px;
+            background-color: white;
+            border: none;
+            margin-left: 0px;
+            margin-bottom: 10px;
+            align-items: first baseline;
+        }
+        .brand-icon{
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-icon>div{
+            display: flex;
+            align-items: center;
+        }.brand-icon>div>img{
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
         }
     </style>
 </head>
@@ -120,7 +154,8 @@
                 <p>Medium Format Cameras (34)</p>
                </div>
                <p><hr>Price Range</hr></p>
-               <div id="priceRange">
+               
+                <div id="priceRange">
                     <button id="1">$0 to $100$</button>
                     <button id="2">$100 to $300</button>
                     <button id="3">$300 to $500</button>
@@ -130,8 +165,68 @@
                     <button id="7">$1100 to $1300</button>
                     <button id="8">$1300 and above</button>
                </div>
+              <p><hr>Brand</p>
+               <div class="brand">
+                  <p>Canon</p>
+                  <p>Fujifilm</p>
+                  <p>Lomography</p>
+                  <p>Minolta</p>
+                  <p>Nikon</p>
+                  <p>Olympus</p>
+                  <p>Panasonic</p>
+                  <p>Pentax</p>
+                  <p>Ricoh</p>
+                  <p>Sony</p>
+               </div>
+               <p><hr>FEATURED BRANDS</p>
+               <div class="brand-icon">
+                    <div>
+                        <img src="https://companieslogo.com/img/orig/CAJ-abaf7aa6.png?t=1660541250" alt="">
+                        <p>Canon</p>
+                    </div>
+                    <div>
+                        <img src="https://www.seekpng.com/png/small/20-208779_letter-f-png-pic-f-logos.png" alt="">
+                        <p>Fujifilm</p>
+                    </div>
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nikon_Logo.svg/2048px-Nikon_Logo.svg.png" alt="">
+                        <p>Nikon</p>
+                    </div>
+                    <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSDvsquvKQLwdgy78mtbD_IyUlnBoM9SnmbO0e1MlofNOS0AP2Mjf68593KbRd1nBpSA&usqp=CAU" alt="">
+                        <p>Panasonic</p>
+                    </div>
+                    <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWGQFNsgGjxRcGPBly6OfBDIdhVD5o8JdFnQ&usqp=CAU" alt="">
+                        <p>Sony</p>
+                    </div>
+               </div>
             </div>
-        <div id="camerasProducts"></div>
+        <div id="both">
+            <div id="camerasProducts"></div>
+        <div style="background-color: rgb(224, 223, 223); padding: 15px;">
+            <div style="background-color: white; padding: 15px;"><p>Cameras come in a range of shapes, sizes, styles, and capabilities. The first step in finding the right camera for your needs is to determine what exactly you hope to use it for. Are you a nature photographer who travels the world? Do you record short videos for your YouTube channel? Each type of camera is best suited for a different kind of use.</p>
+                <h2>What Different Types of Cameras Does Adorama Sell?</h2>
+                <p>At Adorama, we carry a wide range of cameras for a variety of uses. Let’s take a look at the different types and what makes them unique.</p>
+                <h2>Compact Digital Cameras</h2>
+                <p>Point-and-shoot cameras, also known as compact digital cameras, prioritize a smaller size and ease of use over professional-grade results or functionality. While they offer some flexibility in their manual settings, they’re typically used for quick shots.</p>
+                <h2>Digital SLR Cameras</h2>
+                <p>DSLR cameras feature an interchangeable lens format for added flexibility. Many DSLRs have larger sensors and need to accommodate an internal mirror, so they’re physically larger than other types of cameras.</p>
+                <p>If you’re looking for a camera that excels at photography and videography with plenty of manual and automatic settings, you should consider a DSLR.</p>
+                <h2>Mirrorless Cameras</h2>
+                <p>Mirrorless cameras strike the balance between DSLR functionality and point-and-shoot size. These cameras work without mirrors, so your viewfinder shows you an electronic preview of your image. Mirrorless cameras also have interchangeable lenses and are commonly used by intermediate to professional photographers.</p>
+                <h2>Medium Format Digital Cameras</h2>
+                <p>Medium format cameras, most often used by professional photographers, feature a much larger sensor than your average DSLR or mirrorless camera. These cameras offer some of the highest possible resolution so you can print or display your images in a large size without quality loss.</p>
+                <h2>Action Cameras</h2>
+                <p>These cameras are best known for their durability and their ability to withstand drops, shakes, moisture, dust, and other hazards. They’re small and portable, and you can hold them or attach them to objects such as helmets, bikes, or surfboards. <span class="bottom">GoPro</span> is one of the most popular action camera brands.</p>
+                <h2>360 Cameras</h2>
+                <p>360 cameras usually have two or more lenses to capture full 360-degree images and videos. These cameras let you capture amazing footage without worrying about framing.</p>
+                <h2>Film Cameras</h2>
+                <p>Film cameras are fully analog and use common film formats like 35mm film or instant film cartridges. If you want to know more, check out our article on the <span class="bottom">different types of cameras.</span></p>
+                <p>Choose from the Highest-Quality Cameras</p>
+                <p>No matter what type of photography you prefer, you can look to brands like <span class="bottom"> Canon, Sony, Nikon, Panasonic,</span> and <span class="bottom">Fujifilm</span> to produce reliable, high-quality equipment designed to improve your photographic experience.</p></div>
+           </div>
+        </div>
         </div>
     </div>
 </body>

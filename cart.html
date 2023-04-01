@@ -5,9 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cart</title>
+    <style>
+        #cart-item{
+            width: 70%;
+            background-color: gray;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(1,fr);
+        }#cart-item>div{
+            padding: 10px;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    </style>
 </head>
 <body>
-    <div id="cart-item"></div>
+
+    <div>
+        <p style="color: blue;">< Continue shopping</p>
+        <h1>Shopping Cart</h1>
+        <hr>
+        <h2>Ship - Worldwide Express <span id="nuOfitem">(0-<span >items)</span></span></h2>
+        <div id="cart-item"></div>
+        <div>
+            <h2>Cart Summary</h2>
+            <div id="cart-summary">
+                
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
@@ -27,19 +55,8 @@
              name.innerText=element.name
             let subName=document.createElement("p")
             subName.innerText=element.subDetail
-            let sensor=document.createElement("p")
-            sensor.innerText="Sensor Size:"+element.Sensor_size
-            let resolution=document.createElement("p")
-            resolution.innerText="Resolution:"+element.resolution
-            let lenceIncluded=document.createElement("p")
-            lenceIncluded.innerText="Lence Included:"+element.lenceIncluded
-            let lenceMount=document.createElement("p")
-            lenceMount.innerText="Lence Mount:"+element.lenceMount
-            let videoResolution=document.createElement("p")
-            videoResolution.innerText="Video Resolution:"+element.videoResolution
-            let stock=document.createElement("p")
-            stock.innerText="In Stock"
-            name_card.append(name,subName,sensor,resolution,lenceIncluded,lenceMount,videoResolution,stock)
+            
+            name_card.append(name,subName)
             let price_card=document.createElement("div")
             let ourprice=document.createElement("p")
             ourprice.innerText="Our Price"
@@ -53,18 +70,17 @@
             addTocart.innerText="Add to Cart"
             let whish=document.createElement("p")
             whish.innerText="+Whishlist"
-            let save=document.createElement("p")
-            save.innerText="Ways to Save"
-            let offer=document.createElement("p")
-            offer.innerText=element.offer
-            let point=document.createElement("p")
-            point.innerText="Get Reward Point"
+            
+            
 
              
 
-            price_card.append(ourprice,PriceP,sp,priceExplain,addTocart,whish,save,offer,point)
+            price_card.append(PriceP,addTocart,)
             cartItem.append(img_card,name_card,price_card)
             
         });
+    }
+    function Summary(data){
+        
     }
 </script>
