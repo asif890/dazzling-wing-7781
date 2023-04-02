@@ -6,34 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cart</title>
     <style>
-        #cart-item{
-            width: 70%;
-            background-color: gray;
+        #both>#cart-item{
+            width: 65%;
+            background-color: rgb(220, 218, 218);
             padding: 10px;
             display: grid;
+            text-align: center;
             grid-template-columns: repeat(1,fr);
+            gap: 10px;
         }#cart-item>div{
             padding: 10px;
             background-color: white;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(2,);
+            
+            
+        }#cart-item>div>div :nth-child(1){
+            grid-column-start:1 ;
+            grid-column-end:4;
+            grid-row-start:1 ;
+            grid-row-end: 3;
+        }
+        h4{
+            color: blue;
+        }#cart-item>div>div>button{
+            background-color: rgb(237, 120, 53);
+            color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-right: 5px;
+            font-size: 17px;
+        }#cart-item>div>div>button :nth-child(3){
+            display: block;
+            width: 50%;
+        }#main{
+            width: 95%;
+            margin: auto;
+        }
+        #both{
+            width: 100%;
+            display: flex;
             justify-content: space-between;
-            align-items: center;
+            
+        }#both>#sum{
+            width: 30%;
+            padding: 10px;
+            border: 10px solid rgb(220, 218, 218) ;
+        }#sum>#cart-summary{
+            background-color: white;
+            
+        }
+        #sum>#cart-summary>div{
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+        }#sum>button{
+            background-color: rgb(237, 69, 8);
+            color: white;
+            display: block;
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
         }
 
     </style>
 </head>
 <body>
 
-    <div>
+    <div id="main">
         <p style="color: blue;">< Continue shopping</p>
         <h1>Shopping Cart</h1>
         <hr>
         <h2>Ship - Worldwide Express <span id="nuOfitem">(0-<span >items)</span></span></h2>
-        <div id="cart-item"></div>
-        <div>
+        <div id="both">
+            <div id="cart-item"></div>
+        <div id="sum">
             <h2>Cart Summary</h2>
             <div id="cart-summary">
-                
+                <div>
+                    <p>Subtotal</p>
+                    <p><span id="amount">0</span></p>
+                </div>
+                <div>
+                    <p>Shipping cost</p>
+                    <p><span>$5.00</span></p>
+                </div>
+                <div>
+                    <p>Taxes</p>
+                    <p><span>$0.00</span></p>
+                </div>
+                <hr>
+                <div>
+                    <h3>Order Total</h3>
+                    <h3 id="kul"></h3>
+                </div>
             </div>
+            <button>Proceed To Checkout</button>
+        </div>
         </div>
     </div>
     
@@ -42,14 +115,17 @@
 <script>
     let cartItem=document.getElementById("cart-item")
     let CartList=JSON.parse(localStorage.getItem("cameras"))||[]
+    let total=document.getElementById("amount")
+    let kul=document.getElementById("kul")
     display(CartList)
     function display(arr){
-        arr.forEach((element) => {
-        
+        arr.forEach((element,ind) => {
+            let card=document.createElement("div")
             let img_card=document.createElement("div")
             let imag=document.createElement("img")
             imag.src=element.image
             img_card.append(imag)
+            let card2=document.createElement("div")
             let name_card=document.createElement("div")
             let name=document.createElement("h4")
              name.innerText=element.name
@@ -66,21 +142,53 @@
             sp.innerText="VIP PRO"
             let priceExplain=document.createElement("p")
             priceExplain.innerText=element.priceExplain
+            let inc=document.createElement("button")
+            inc.innerText="+"
+            let qua=document.createElement("span")
+            qua.innerText=element.quantity
+            let dec=document.createElement("button")
+            dec.innerText="-"
             let addTocart=document.createElement("button")
-            addTocart.innerText="Add to Cart"
+            addTocart.innerText="Remove"
             let whish=document.createElement("p")
             whish.innerText="+Whishlist"
             
-            
+            addTocart.addEventListener("click",()=>{
+               CartList=CartList.filter((ele,i)=>{
+                 return element.id!==ele.id
+               })
+               display(CartList)
+               localStorage.setItem("cameras",JSON.stringify(CartList))
+               
 
+            })
+            inc.addEventListener("click",()=>{
+                element.quantity++
+                localStorage.setItem("cameras",JSON.stringify(CartList))
+                display(CartList)
+            })
+            dec.addEventListener("click",()=>{
+                if(element.quantity>1){
+                    element.quantity++
+                    localStorage.setItem("cameras",JSON.stringify(CartList))
+                }
+                display(CartList)
+            })
              
 
-            price_card.append(PriceP,addTocart,)
-            cartItem.append(img_card,name_card,price_card)
+            price_card.append(PriceP,inc,qua,dec,addTocart)
+            card2.append(name_card,price_card)
+            card.append(img_card,card2)
+            cartItem.append(card)
             
         });
     }
-    function Summary(data){
-        
-    }
+    
+        let sum=0
+        for(let i=0; i<CartList.length; i++){
+            sum+=Number(CartList[i].price)
+        }
+        total.innerText="$"+(sum)+".00"
+        kul.innerText="$"+(sum+5)
+    
 </script>

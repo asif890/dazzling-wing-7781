@@ -126,6 +126,19 @@
             width: 30px;
             height: 30px;
             margin-right: 15px;
+        }#discount{
+            font-size: 17 px;
+        }#price{
+            width: 50%;
+            display: flex;
+            margin: auto;
+            margin-bottom: 20px;
+            margin-right: 10px;
+            justify-content: space-around;
+        }#price>button{
+            background-color: orange;
+            color: white;
+            font-size: 17px;
         }
     </style>
 </head>
@@ -138,7 +151,13 @@
         </div>
         <h1>Digital Cameras & Digital Camera Kits</h1>
         <p>View additional :<span class="topPart">Used Digital Cameras & Digital Camera Kits (573)</span></p>
+        <div id="price">
+            <h3>Filter By</h3>
+            <button>Price Low to High</button>
+            <button>Price High to Low</button>
+        </div>
         <div id="filter-products">
+            
             <div id="filter-section">
                <p>CATEGORIES:</p>
                <a href="">< All Categories</a><br>
@@ -167,16 +186,55 @@
                </div>
               <p><hr>Brand</p>
                <div class="brand">
-                  <p>Canon</p>
-                  <p>Fujifilm</p>
-                  <p>Lomography</p>
+                  <p id="canon">Canon</p>
+                  <p id="fujifilm">Fujifilm</p>
+                  <p id="lomography">Lomography</p>
                   <p>Minolta</p>
-                  <p>Nikon</p>
+                  <p id="nikon">Nikon</p>
                   <p>Olympus</p>
-                  <p>Panasonic</p>
+                  <p id="panasonic">Panasonic</p>
                   <p>Pentax</p>
                   <p>Ricoh</p>
-                  <p>Sony</p>
+                  <p id="sony">Sony</p>
+               </div>
+               <p><hr>Filter By </p>
+               <div id="rate" style="color: blue;">
+                <p>In stock (183)</p>
+                <p>In Strore Pick-Up (197)</p>
+                <p>Kits Only (40)</p>
+                <p>Non-Kits (585)</p>
+                <p>Top Rated (199)</p>
+                <p>Used (586)</p>
+               </div>
+               <div id="discount">
+                <hr>
+                <p>Discount</p>
+                <hr>
+                <p>Model</p>
+                <hr>
+                <p>Sensor Size</p>
+                <hr>
+                <p>Resolution</p>
+                <hr>
+                <p>Lence Mount</p>
+                <hr>
+                <p>Format</p>
+                <hr>
+                <p>Video Resolution</p>
+                <hr>
+                <p>Special Feature</p>
+                <hr>
+                <p>Series</p>
+                <hr>
+                <p>Configuration</p>
+                <hr>
+                <p>Lens Included</p>
+                <hr>
+                <p>Max Video Quality</p>
+                <hr>
+                <p>Kit Style</p>
+                <hr>
+                <p>Viewfinder</p>
                </div>
                <p><hr>FEATURED BRANDS</p>
                <div class="brand-icon">
@@ -321,29 +379,29 @@
     let CartList=JSON.parse(localStorage.getItem("cameras"))||[]
     function display(arr){
         products.innerHTML=""
-        arr.forEach((element) => {
+        for(let i=0; i<6; i++) {
             let card=document.createElement("div")
             let img_card=document.createElement("div")
             let imag=document.createElement("img")
-            imag.src=element.image
+            imag.src=arr[i].image
             img_card.append(imag)
             let name_card=document.createElement("div")
             let name=document.createElement("h4")
-             name.innerText=element.name
+             name.innerText=arr[i].name
             let subName=document.createElement("p")
-            subName.innerText=element.subDetail
+            subName.innerText=arr[i].subDetail
             let rate=document.createElement("img")
-            rate.src=element.rate
+            rate.src=arr[i].rate
             let sensor=document.createElement("p")
-            sensor.innerText="Sensor Size:"+element.Sensor_size
+            sensor.innerText="Sensor Size:"+arr[i].Sensor_size
             let resolution=document.createElement("p")
-            resolution.innerText="Resolution:"+element.resolution
+            resolution.innerText="Resolution:"+arr[i].resolution
             let lenceIncluded=document.createElement("p")
-            lenceIncluded.innerText="Lence Included:"+element.lenceIncluded
+            lenceIncluded.innerText="Lence Included:"+arr[i].lenceIncluded
             let lenceMount=document.createElement("p")
-            lenceMount.innerText="Lence Mount:"+element.lenceMount
+            lenceMount.innerText="Lence Mount:"+arr[i].lenceMount
             let videoResolution=document.createElement("p")
-            videoResolution.innerText="Video Resolution:"+element.videoResolution
+            videoResolution.innerText="Video Resolution:"+arr[i].videoResolution
             let stock=document.createElement("p")
             stock.innerText="In Stock"
             name_card.append(name,subName,rate,sensor,resolution,lenceIncluded,lenceMount,videoResolution,stock)
@@ -351,11 +409,11 @@
             let ourprice=document.createElement("p")
             ourprice.innerText="Our Price"
             let PriceP=document.createElement("h2")
-            PriceP.innerText="$"+element.price
+            PriceP.innerText="$"+arr[i].price
             let sp=document.createElement("span")
             sp.innerText="VIP PRO"
             let priceExplain=document.createElement("p")
-            priceExplain.innerText=element.priceExplain
+            priceExplain.innerText=arr[i].priceExplain
             let addTocart=document.createElement("button")
             addTocart.innerText="Add to Cart"
             let whish=document.createElement("p")
@@ -363,16 +421,16 @@
             let save=document.createElement("p")
             save.innerText="Ways to Save"
             let offer=document.createElement("p")
-            offer.innerText=element.offer
+            offer.innerText=arr[i].offer
             let point=document.createElement("p")
             point.innerText="Get Reward Point"
 
              addTocart.addEventListener("click",()=>{
-                if(inCart(element)){
+                if(inCart(arr[i])){
                     alert("Product Allready In Cart")
                 }else{
                     alert("Product Added To Cart")
-                    CartList.push(element)
+                    CartList.push({...arr[i],quantity:1})
                     localStorage.setItem("cameras",JSON.stringify(CartList))
                 }
              })
@@ -380,7 +438,7 @@
             price_card.append(ourprice,PriceP,sp,priceExplain,addTocart,whish,save,offer,point)
             card.append(img_card,name_card,price_card)
             products.append(card)
-        });
+        };
     }
    function inCart(elements){
       for(let i=0; i<CartList.length; i++){
@@ -393,5 +451,66 @@
       }
       
    }
+   let B_canon=document.getElementById("canon")
+let B_nikon=document.getElementById("nikon")
+let B_fujifilm=document.getElementById("fujifilm")
+let B_lomograpgy=document.getElementById("lomography")
+let B_panasonic=document.getElementById("panasonic")
+let B_sony=document.getElementById("sony")
 
+B_canon.addEventListener("click",()=>{
+    let can=Alldata.filter((element)=>{
+        if(element.brand=="canon"){
+            return true
+        }
+    })
+    display(can)
+})
+B_lomograpgy.addEventListener("click",()=>{
+    let can=Alldata.filter((element)=>{
+        if(element.brand=="lomography"){
+            return true
+        }
+    })
+    display(can)
+})
+B_fujifilm.addEventListener("click",()=>{
+    let can=Alldata.filter((element)=>{
+        if(element.brand=="fujifilm"){
+            return true
+        }
+    })
+    display(can)
+})
+B_nikon.addEventListener("click",()=>{
+    let can=Alldata.filter((element)=>{
+        if(element.brand=="nikon"){
+            return true
+        }
+    })
+    display(can)
+})
+B_panasonic.addEventListener("click",()=>{
+    let can=Alldata.filter((element)=>{
+        if(element.brand=="panasonic"){
+            return true
+        }
+    })
+    display(can)
+})
+B_sony.addEventListener("click",()=>{
+    let can=Alldata.filter((element)=>{
+        if(element.brand=="sony"){
+            return true
+        }
+    })
+    display(can)
+})
+let Allcam=JSON.parse(localStorage.getItem("products"))||[]
+Alldata.forEach((element) => {
+    Allcam.push(element)
+});
+
+localStorage.setItem("products",JSON.stringify(car))
+console.log(car);
 </script>
