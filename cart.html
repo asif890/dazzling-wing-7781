@@ -6,6 +6,238 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cart</title>
     <style>
+        * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'segoe ui';
+  }
+  
+  .nav {
+    height: 50px;
+    width: 100%;
+    background-color: rgb(0, 70, 145);
+    position: relative;
+    margin-top: -16px;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 550;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .nav > .nav-btn {
+    display: none;
+  }
+  
+  .nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+  }
+  .nav > .nav-links > ul li a{
+    display: block;
+    padding: 0 8px;
+    color: #fff;
+    line-height: 40px;
+    font-size: 18px;
+    text-decoration: none;
+
+  }
+  .nav > .nav-links > ul{
+    padding: 0;
+    margin-top: 5px;
+    list-style: none;
+    position: relative;
+    
+  }
+  .nav > .nav-links > ul li{
+    display: inline-block;
+    background-color: rgb(0, 70, 145);
+    
+    
+  }
+  .nav > .nav-links > ul li:hover{
+    background-color: rgb(0, 70, 145);
+      border-radius: 5px;
+  }
+  
+  .nav > #nav-check {
+    display: none;
+  }
+
+ .nav .nav-links ul a.icon{
+ margin-left: 80px;
+ margin-right: 10px;
+ }
+
+ .nav .nav-links ul a i{
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 7px;
+    margin-left: 5px;
+ }
+
+  
+  @media (max-width:750px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+    }
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > ul li a {
+      display: block;
+      width: 100%;
+    }
+
+    /*   */
+
+
+    
+      .nav > .nav-links > ul li{
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+        background-color: #333;
+         
+      }
+      .nav > .nav-links > ul li a{
+          margin-left: 40%;
+      }
+      .nav .nav-links ul a.icon{
+        margin-left: 33%;
+      }
+
+    /*   */
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
+  #btn{
+    font-size: 20px;
+    margin-right: 20px;
+    background-color: rgb(0, 70, 145);
+    color: white;
+    /* border-radius: 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+  }
+
+
+  .navbar{
+    background-color: rgb(0, 43, 102);
+    margin-top: -16px;
+    /* border-radius: 30px */
+  }
+  .navbar li{
+      float:left;
+      list-style: none; 
+      margin: 13px 20px;
+      color: white;
+  }
+  .navbar li:hover{
+      color: rgb(21, 255, 0);
+  }
+  .navbar ul{
+      overflow: auto;
+  }
+  .navbar li a{
+      padding: 3px 3px;
+      text-decoration: none;
+      color: white;
+  }
+  .search{
+      float: right;
+      color: white;
+      padding: 12px 75px;
+      margin-right: 50px;
+      
+  }
+  #sign{
+   /* margin-bottom: 100px; */
+   color: white;
+   font-size: 20px;
+   font-family: cursive;
+   margin-left: 25px;
+  }
+  #sign:hover{
+    color: rgb(21, 255, 0);
+  }
+  .navbar input{
+      border: 2px solid black;
+      border-radius: 9px;
+      padding: 3px 17px;
+      width: 400px;
+  }
+  #search{
+    font-size: 23px;
+    margin-top: 13px;
+  }
+  .nav-links{
+    margin-right: 30px;
+  }
+
+ .nav-title> button {
+  background-color: rgb(0, 70, 145);
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+ .nav-title> button:hover {
+    /* background-color:rgb(23, 23, 137); */
+    color: rgb(21, 255, 0);
+  }
+  .nav-links>ul>li>a:hover{
+    color: rgb(21, 255, 0);
+  }
         #both>#cart-item{
             width: 65%;
             background-color: rgb(220, 218, 218);
@@ -72,11 +304,156 @@
             border: none;
             border-radius: 5px;
         }
+        /* Footer */
+
+
+
+.footer-99382 .row > div:not(:first-child) {
+    flex: 1;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-99382 .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .footer-99382 {
+    background-color:rgb(9, 53, 125);
+    padding: 40px 0;
+  }
+  
+  /* Style the site logo */
+  .footer-site-logo {
+    color:white;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  /* Style the footer links */
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+  
+  .nav-links a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover {
+    color:green;
+  }
+  
+  /* Style the social icons */
+  .social li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color:white;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  
+  .social a:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Style the copyright text */
+  .copyright {
+    color: white;
+    font-size: 14px;
+  }
+  .footer-99382 h3{
+  margin-left: 30px;
+  color: white;
+  }
+  .icon-facebook>img{
+      width: 100%;
+  }
+  .col-md img{
+      width: 100%;
+  }
+  .col-md-4>a{
+    font-size: 30px;
+    margin-left: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }  
+ 
+
+
+     /* Hover */
+
+#t1>div:hover
+{
+   
+        transform: scale(1.1);
+        color: rgb(34,139,34);
+        font-family:cursive;
+}
+#t2>div:hover
+{
+   
+    transform: scale(1.1);
+}
 
     </style>
 </head>
 <body>
-
+    <nav class="navbar">
+        <ul>
+            <!-- <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Contact Us</li></a> -->
+            <img src="./signup/loginpage/finprologo.png" alt="">
+            <div class="search">
+                <input type="text" name="search" id="search" placeholder="Search">
+               <a href="./signup/loginpage/signin.html" target="_blank" id="sign"><u></u>Sign in ></u></a>
+               <a href="./cart.html" target="_blank" id="sign"><u></u>Cart ></u></a>
+            </div>
+        </ul>
+    </nav>
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-header">
+              <div class="nav-title">
+               <!-- Shoppers -->
+               <button>
+                Home
+               </button>
+               <button>About</button>
+               <button> Products</button>
+               <button>Deals</button>
+              </div>
+            </div>
+            <div class="nav-btn">
+              <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+            
+            <div class="nav-links">
+                <ul>
+              <li><a href="#" target="_blank">Deal of the Day</a></li>
+              <li><a href="#" target="_blank">Used</a></li>
+              <li><a href="#" target="_blank">VIP Rewards</a></li>
+              <li><a href="./camera.html" target="_blank">Products</a></li>
+              <li><a href="#" target="_blank">Sale</a></li>
+              <li><a href="#" target="_blank">Gift Card</a></li>
+                </ul>
+            </div>
+          </div>
     <div id="main">
         <p style="color: blue;">< Continue shopping</p>
         <h1>Shopping Cart</h1>
@@ -111,6 +488,72 @@
     </div>
     
 </body>
+<footer class="footer-99382" style="background-image: url('images/hero_1.jpg');">
+        
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 pr-md-5">
+          <a href="#" class="footer-site-logo d-block mb-4">Shoppers</a>
+          <p></p>
+        </div>
+        <div class="col-md">
+          <h3>Discover</h3>
+          <ul class="list-unstyled nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <h3>About</h3>
+          <ul class="list-unstyled nav-links">
+            <li><a href="#">Clients</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Journal</a></li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <h3>Help</h3>
+          <ul class="list-unstyled nav-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <h3>Follow Us</h3>
+          <ul class="social list-unstyled">
+            <li><a href="#" class="pl-0"><span class="icon-instagram">
+                <img src="https://www.svgrepo.com/show/506511/instagram.svg" alt="">
+            </span></a></li>
+            <li><a href="#"><span class="icon-twitter">
+                <img src="https://www.svgrepo.com/show/506517/linkedin.svg" alt="">
+            </span></a></li>
+            <li><a href="#"><span class="icon-facebook">
+                <img src="https://www.svgrepo.com/show/506477/facebook.svg" alt="">
+            </span></a></li>
+            <li><a href="#"><span class="icon-pinterest">
+                <img src="https://www.svgrepo.com/show/506611/twitter.svg" alt="">
+            </span></a></li>
+          
+          </ul>
+        </div>
+      </div> 
+  
+      <div class="row ">
+        <div class="col-12 text-center">
+          <div class="copyright mt-5 pt-5">
+            <p style="margin-left: 30px;"><small>&copy; 2019&mdash;2020 All Rights Reserved.</small></p>
+          </div>
+        </div>
+      </div> 
+    </div>
+    
+  </footer>
 </html>
 <script>
     let cartItem=document.getElementById("cart-item")
@@ -186,7 +629,7 @@
     
         let sum=0
         for(let i=0; i<CartList.length; i++){
-            sum+=Number(CartList[i].price)
+            sum+=Number(CartList[i].price)*Number(CartList[i].quantity)
         }
         total.innerText="$"+(sum)+".00"
         kul.innerText="$"+(sum+5)
