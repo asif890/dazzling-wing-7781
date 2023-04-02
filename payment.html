@@ -31,6 +31,33 @@
         <!-- <a href="payment.html" onclick="closepopup1()">OK</a> -->
     </div>
 
+    <div class="popup2" id="popup2">
+        
+        <h2>plese enter otp</h2>
+        <input id="otp" type="text" placeholder="* * * *">
+        <button type="button" id="okbtn2" >OK</button>
+        <!-- <a href="payment.html" onclick="closepopup1()">OK</a> -->
+    </div>
+
+    <div class="popup3" id="popup3">
+      <h4>your otp is</h4>  
+        <h2>1234</h2>
+       <p>use this to authenticate payment <br>
+    do not share this with anyone <br>
+    valid for 2 mins only</p>
+        <!-- <button type="button" id="okbtn2" >OK</button> -->
+        <!-- <a href="payment.html" onclick="closepopup1()">OK</a> -->
+    </div>
+
+    <div class="popup4" id="popup4">
+        
+          <h2>sorry</h2>
+           <h4>otp did not match</h4> 
+         <p>please enter the correct otp <br> and try again</p>
+          <button type="button" id="okbtn4" >OK</button>
+          <!-- <a href="payment.html" onclick="closepopup1()">OK</a> -->
+      </div>
+
 
 <div class="container" id="seccont">
 
@@ -164,12 +191,20 @@ document.querySelector('.cvv-input').oninput = () =>{
             container.innerHTML=null
             popup1.classList.add("openpopup1")
         }
-        else{
-            console.log("done");
-            // openpopup()
-            container.innerHTML=null
-            popup.classList.add("openpopup")
-        }
+        // else{
+        //     console.log("done");
+        //     // openpopup()
+        //     container.innerHTML=null
+        //     popup.classList.add("openpopup")
+        // }
+
+            else{
+                container.innerHTML=null
+                popup3.classList.add("openpopup3")
+                popup2.classList.add("openpopup2")
+            }
+
+
     })
 
 
@@ -177,6 +212,45 @@ document.querySelector('.cvv-input').oninput = () =>{
         popup1.classList.remove("openpopup1")
         window.location.reload()
     }
-    
+    // function closepopup2(){
+    //     let otp=document.getElementById("otp")
+    //     let otpval=otp.value
+    //     if(otpval==="1234"){
+    //         // window.location.reload()
+    //         container.innerHTML=null
+    //         popup1.classList.add("openpopup")
+           
+    //     }
+    //     // else if(otpval==1234){
+    //     //     openpopup()
+    //     // }
+    // }
+    let otpbtn=document.getElementById("okbtn2")
+    otpbtn.addEventListener("click",()=>{
+        console.log("ok")
+        let otp=document.getElementById("otp").value
+        // let otpval=otp.value
+        if(otp==="1234"){
+            // window.location.reload()
+            container.innerHTML=null
+            popup2.classList.remove("openpopup2")
+            popup.classList.add("openpopup")
+           
+        }
+        else{
+            popup3.classList.remove("openpopup3")
+            popup4.classList.add("openpopup4")
+        }
+    })
+
+
+
+    let otpbtn4=document.getElementById("okbtn4")
+    otpbtn4.addEventListener("click",()=>{
+        popup4.classList.remove("openpopup4")
+        
+
+    })
+
 </script>
 </html>
